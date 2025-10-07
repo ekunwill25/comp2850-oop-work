@@ -6,7 +6,6 @@ fun main() {
     
     var pizza: String
     
-    // Loop until valid input is received
     do {
         println("Please select the pizza that you wanta")
         pizza = readln().lowercase()
@@ -16,7 +15,6 @@ fun main() {
         }
     } while (pizza != "a" && pizza != "b" && pizza != "c" && pizza != "d")
     
-    // Display the selected pizza
     when (pizza) {
         "a" -> println("You have selected Margherita")
         "b" -> println("You have selected Pepperoni")
