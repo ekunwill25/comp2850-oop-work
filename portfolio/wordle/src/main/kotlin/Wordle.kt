@@ -6,7 +6,7 @@ fun isValid(word: String): Boolean {
 
 fun readWordList(filename: String): MutableList<String> {
     val words = mutableListOf<String>()
-    val lines = File(filename).readLine() // reads the entire file at once //
+    val lines = File(filename).readLines() // reads the entire file at once //
 
     for (line in lines) {
         val trimmed = line.trim()
