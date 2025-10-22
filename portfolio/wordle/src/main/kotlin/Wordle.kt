@@ -1,4 +1,6 @@
 import java.io.File
+package Wordle
+
 
 fun isValid(word: String): Boolean {
     return word.length == 5 && word.all { it.isLetter() } // Checks that every character is a letter //

@@ -1,3 +1,6 @@
+package Wordle
+import java.io.File
+
 fun main() {
     println("Welcome to Wordle!")
     println("========space space space==========")

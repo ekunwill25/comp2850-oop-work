@@ -1,5 +1,6 @@
 import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.assertions.throwables.shouldThrow
+package Wordle
 
 import io.kotest.core.spec.style.StringSpec // library for testing
 import io.kotest.matchers.shouldBe // library for testing 
