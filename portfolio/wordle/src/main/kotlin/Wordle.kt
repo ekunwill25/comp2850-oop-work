@@ -1,5 +1,5 @@
-import java.io.File
 package Wordle
+import java.io.File
 
 
 fun isValid(word: String): Boolean {
