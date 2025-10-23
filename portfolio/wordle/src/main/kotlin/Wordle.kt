@@ -1,7 +1,9 @@
 import java.io.File
 
+private const val WORD_LENGTH = 5
+
 fun isValid(word: String): Boolean {
-    return word.length == 5 && word.all { it.isLetter() } // Checks that every character is a letter //
+    return word.length == WORD_LENGTH && word.all { it.isLetter() } // Checks that every character is a letter //
 }
 
 fun readWordList(filename: String): MutableList<String> {
@@ -19,13 +21,11 @@ fun readWordList(filename: String): MutableList<String> {
 }
 
 fun pickRandomWord(words: MutableList<String>): String {
-    if (words.isEmpty()) {
-        throw IllegalStateException("Word list is empty") // stops program for an error
-    }
+    check(words.isNotEmpty()) { "Word list is empty" } // stops program for an error
 
-    val rI = words.indices.random() // random index
-    val chosenWord = words[rI] // word at random index
-    words.removeAt(rI) // removes chosen word from list to avoid repetition //
+    val randomIndex = words.indices.random() // random index
+    val chosenWord = words[randomIndex] // word at random index
+    words.removeAt(randomIndex) // removes chosen word from list to avoid repetition //
 
     return chosenWord
 }
@@ -33,7 +33,7 @@ fun pickRandomWord(words: MutableList<String>): String {
 fun evaluateGuess(guess: String, target: String): List<Int> {
     val result = mutableListOf<Int>() // list to hold results //
 
-    for (i in 0 until 5) {
+    for (i in 0 until WORD_LENGTH) {
         if (guess[i] == target[i]) {
             result.add(1) // correct letter/position //
         } else {
@@ -60,7 +60,7 @@ fun obtainGuess(attempt: Int): String {
 fun displayGuess(guess: String, matches: List<Int>) {
     val display = StringBuilder() // to build the display string //
 
-    for (i in 0 until 5) {
+    for (i in 0 until WORD_LENGTH) {
         if (matches[i] == 1) {
             display.append(guess[i]) // correct letter/position shown //
         } else {

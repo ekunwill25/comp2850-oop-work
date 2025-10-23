@@ -1,3 +1,5 @@
+private const val MAX_ATTEMPTS = 10
+
 fun main() {
     println("Welcome to Wordle!")
     println("========space space space==========") // the space before typing
@@ -11,16 +13,15 @@ fun main() {
 
     // loop for user attempts
     var won = false
-    val maxAttempts = 10
 
-    for (attempt in 1..maxAttempts) {
+    for (attempt in 1..MAX_ATTEMPTS) {
         val guess = obtainGuess(attempt)
         val matches = evaluateGuess(guess, target)
         displayGuess(guess, matches)
 
         // winning checker
         if (guess == target) {
-            println("\nCongratulations! You guessed the word in $attempt attempts!")
+            println("\nCongratations! You guessed the word in $attempt attempts!")
             won = true
             break
         }
