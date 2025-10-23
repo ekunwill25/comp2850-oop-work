@@ -1,5 +1,3 @@
-package wordle
-
 fun main() {
     println("Welcome to Wordle!")
     println("========space space space==========") // the space before typing

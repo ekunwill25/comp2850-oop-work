@@ -1,4 +1,3 @@
-package wordle
 import java.io.File
 
 fun isValid(word: String): Boolean {
