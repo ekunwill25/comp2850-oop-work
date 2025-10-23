@@ -1,4 +1,4 @@
-private const val MAX_ATTEMPTS = 10
+private const val MAX_ATTEMPTS = 6
 
 fun main() {
     println("Welcome to Wordle!")
