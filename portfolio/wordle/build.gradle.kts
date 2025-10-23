@@ -30,7 +30,7 @@ tasks.withType<Test>().configureEach {
 }
 
 application {
-    mainClass = "wordle.MainKt" // changed the line to fit the package structure
+    mainClass = "wordle.MainKt" // changed the line to fit the package structure //
 }
 
 tasks.named<JavaExec>("run") {

@@ -7,7 +7,7 @@ fun isValid(word: String): Boolean {
 }
 
 fun readWordList(filename: String): MutableList<String> {
-    val words = mutableListOf<String>()
+    val words = mutableListOf<String>() // creates an empty list of strings //
     val lines = File(filename).readLines() // reads the entire file at once //
 
     for (line in lines) {
@@ -25,21 +25,21 @@ fun pickRandomWord(words: MutableList<String>): String {
         throw IllegalStateException("Word list is empty") // stops program for an error
     }
     
-    val RI = words.indices.random()
-    val chosenWord = words[RI]
-    words.removeAt(RI)
+    val RI = words.indices.random() // random index
+    val chosenWord = words[RI] // word at random index
+    words.removeAt(RI) // removes chosen word from list to avoid repetition //
     
-    return chosenWord
+    return chosenWord 
 }
 
 fun evaluateGuess(guess: String, target: String): List<Int> {
-    val result = mutableListOf<Int>()
+    val result = mutableListOf<Int>() // list to hold results //
     
-    for (i in 0 until 5) {
-        if (guess[i] == target[i]) {
-            result.add(1)
+    for (i in 0 until 5) { 
+        if (guess[i] == target[i]) { 
+            result.add(1) // correct letter/position //
         } else {
-            result.add(0)
+            result.add(0) // incorrect letter/position //
         }
     }
     
@@ -48,11 +48,11 @@ fun evaluateGuess(guess: String, target: String): List<Int> {
 
 fun obtainGuess(attempt: Int): String {
     while (true) {
-        print("Attempt $attempt: ")
-        val input = readLine()
+        print("Attempt $attempt: ") // prompt for user input whilst putting the attempt number //
+        val input = readLine() // reads user input //
         
         if (input != null && isValid(input)) {
-            return input.lowercase()
+            return input.lowercase() // returns valid input in lowercase //
         } else {
             println("Please enter a valid 5-letter word.")
         }
@@ -60,13 +60,13 @@ fun obtainGuess(attempt: Int): String {
 }
 
 fun displayGuess(guess: String, matches: List<Int>) {
-    val display = StringBuilder()
+    val display = StringBuilder() // to build the display string //
     
     for (i in 0 until 5) {
         if (matches[i] == 1) {
-            display.append(guess[i])
+            display.append(guess[i]) // correct letter/position shown //
         } else {
-            display.append('?')
+            display.append('?') // incorrect letter/position shown as '?' //
         }
     }
     
