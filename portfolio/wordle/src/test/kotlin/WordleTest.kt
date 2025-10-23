@@ -1,24 +1,24 @@
 package wordle
 
-import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 
 class WordleTest : StringSpec({
-    
+
     "isValid should return true for 5-letter words" {
         isValid("hello") shouldBe true
         isValid("rebel") shouldBe true
         isValid("APPLE") shouldBe true
     }
-    
+
     "isValid should return false for words that are not 5 letters" {
         isValid("cat") shouldBe false
         isValid("ohio") shouldBe false
         isValid("") shouldBe false
     }
-    
+
     "isValid should return false for words with numbers or symbols" {
         isValid("hell0") shouldBe false
         isValid("wor-dle") shouldBe false
@@ -42,7 +42,7 @@ class WordleTest : StringSpec({
         val words = mutableListOf("hello", "world", "apple", "grape", "lemon")
         val originalSize = words.size
         val picked = pickRandomWord(words)
-        
+
         picked.length shouldBe 5
         words.size shouldBe originalSize - 1
         words.contains(picked) shouldBe false
